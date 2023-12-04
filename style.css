@@ -11,8 +11,8 @@ body {
 header {
     background: linear-gradient(to bottom, rgb(37, 37, 37)90%, #ffffff 100%);
     color: #fff;
-    padding: 40px 0;
-    text-align: center;
+    padding: 40px;
+    text-align: left;
     box-shadow: 0 2px 5px rgba(0,0,0,0.4);
 }
 
@@ -21,6 +21,13 @@ header h1 {
     animation: fadeInDown 1s ease-in-out;
     font-family:fantasy;
 }
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
 
 @keyframes fadeInDown {
     from {
@@ -33,6 +40,33 @@ header h1 {
     }
 }
 
+a {
+    color: #333333; /* or any other color you prefer */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    position: relative; /* Added for underline effect */
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: hsl(152, 95%, 30%); /* Underline color, adjust as needed */
+    left: 50%;
+    bottom: -5px; /* Adjust as needed */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+a:hover {
+    color: hsl(152, 95%, 30%); /* Adjust hover color as needed */
+}
+
 nav ul {
     padding: 0;
     list-style: none;
@@ -41,12 +75,30 @@ nav ul {
 nav ul li {
     display: inline;
     margin: 0 10px;
+    text-align: left;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
+    position: relative; /* Added for underline effect */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: hsl(152, 95%, 30%); /* Underline color */
+    left: 50%;
+    bottom: -5px; /* Adjust as needed */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 nav a:hover {
@@ -60,6 +112,16 @@ section {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.3s ease-in-out;
+}
+
+.projects img {
+    max-width: 100%; /* ensures the image is never more than 100% of its parent's width */
+    height: auto; /* maintains the aspect ratio */
+    display: block; /* removes any extra space below the image */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 section:hover {
@@ -81,15 +143,6 @@ footer {
     width: 100%;
 }
 
-footer a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-footer a:hover {
-    color: #f0f0f0;
-}
 
 @media screen and (max-width: 768px) {
     nav ul li {
