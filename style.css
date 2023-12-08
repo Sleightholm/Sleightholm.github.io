@@ -1,25 +1,28 @@
-
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0;
+    padding-top: 150px;
     color: #333333;
     background: #ffffff;
 }
 
 header {
-    background: linear-gradient(to bottom, rgb(37, 37, 37)90%, #ffffff 100%);
+    background: linear-gradient(to bottom, rgb(37, 37, 37) 90%, #ffffff 100%);
     color: #fff;
     padding: 40px;
     text-align: left;
     box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
     margin: 0;
     animation: fadeInDown 1s ease-in-out;
-    font-family:fantasy;
+    font-family: 'Roboto', sans-serif;
 }
 
 footer a {
@@ -27,7 +30,6 @@ footer a {
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
-
 
 @keyframes fadeInDown {
     from {
@@ -67,14 +69,22 @@ a:hover {
     color: hsl(152, 95%, 30%); /* Adjust hover color as needed */
 }
 
+header a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    display: inline-flex;
+}
+
 nav ul {
     padding: 0;
     list-style: none;
+    display: inline-flex;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 5px 10px;
     text-align: left;
 }
 
@@ -83,6 +93,7 @@ nav a {
     text-decoration: none;
     transition: color 0.3s ease-in-out;
     position: relative; /* Added for underline effect */
+    margin: 0 15px;
 }
 
 nav a::after {
@@ -114,14 +125,70 @@ section {
     transition: transform 0.3s ease-in-out;
 }
 
-.projects img {
-    max-width: 100%; /* ensures the image is never more than 100% of its parent's width */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+li {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+i {
+    font-size: 2em;
+    transition: color 0.3s ease; /* Add a smooth color transition effect */
+}
+
+  /* Hover effect for the icons */
+i:hover {
+    color: hsl(152, 95%, 30%); /* Change the color on hover */
+}
+
+#projects {
+    scroll-margin-top: 200px; /* THIS NEEDS HELP */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: auto;
+}
+
+#education {
+    scroll-margin-top: 200px;
+}
+
+#projects img {
+    max-height: 50%;
+    max-width: 100%;
     height: auto; /* maintains the aspect ratio */
     display: block; /* removes any extra space below the image */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
+}
+
+#projects code {
+    display: block;
+    white-space: pre-wrap;
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 1.5;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    max-width: 100%; /* Set maximum width to 100% of the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: left;
+}
+
+#mission {
+    scroll-margin-top: 200px;
 }
 
 section:hover {
@@ -143,12 +210,25 @@ footer {
     width: 100%;
 }
 
+footer a {
+    margin: 0 10px;
+}
 
 @media screen and (max-width: 768px) {
     nav ul li {
         display: block;
         text-align: center;
         margin: 10px 0;
+    }
+    i {
+        font-size: 1.5em;
+    }
+    footer a {
+        margin: 0 5px;
+    }
+
+    .skills-category {
+        width: 100%;
     }
 }
 
@@ -164,4 +244,60 @@ footer {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#skills {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    scroll-margin-top: 200px;
+}
+
+.skills-category {
+    width: 99%; /* Adjust as needed */
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.skills-category h3 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.skills-list li {
+    text-align: center;
+    margin: 0 15px;
+    padding: 10px;
+}
+
+.skills-list i {
+    font-size: 2em;
+    transition: color 0.3s ease; /* Add a smooth color transition effect */
+}
+
+/* Hover effect for the icons */
+.skills-list i:hover {
+    color: hsl(152, 95%, 30%); /* Change the color on hover */
+}
+
+.mission-statement {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mission-section {
+    margin-bottom: 20px;
 }
