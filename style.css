@@ -143,7 +143,9 @@ li {
 
 i {
     font-size: 2em;
-    transition: color 0.3s ease; /* Add a smooth color transition effect */
+    transition: color 0.3s ease;
+    overflow: hidden; 
+    display: block;
 }
 
   /* Hover effect for the icons */
@@ -152,39 +154,41 @@ i:hover {
 }
 
 #projects {
-    scroll-margin-top: 200px; /* THIS NEEDS HELP */
+    scroll-margin-top: 200px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    overflow: auto;
 }
 
-#education {
-    scroll-margin-top: 200px;
+#projects pre {
+    flex: 0 0 calc(48% - 20px); /* Adjust the width based on your preference */
+    margin: 10px; /* Adjust the margin based on your preference */
+    box-sizing: border-box;
 }
 
 #projects img {
     max-height: 50%;
-    max-width: 100%;
-    height: auto; /* maintains the aspect ratio */
-    display: block; /* removes any extra space below the image */
+    max-width: 70%;
+    height: auto;
+    display: block;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0 auto;
 }
 
 #projects code {
-    display: block;
     white-space: pre-wrap;
     padding: 10px;
     border-radius: 5px;
     line-height: 1.5;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    max-width: 100%; /* Set maximum width to 100% of the container */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    overflow-x: auto;
+    max-width: 100%;
+    box-sizing: border-box;
     text-align: left;
+}
+
+
+
+#education {
+    scroll-margin-top: 200px;
 }
 
 #mission {
@@ -215,11 +219,19 @@ footer a {
 }
 
 @media screen and (max-width: 768px) {
+    nav ul {
+        text-align: center;
+    }
+
     nav ul li {
         display: block;
-        text-align: center;
         margin: 10px 0;
     }
+
+    nav a {
+        margin: 0;
+    }
+
     i {
         font-size: 1.5em;
     }
@@ -285,7 +297,7 @@ footer a {
 
 .skills-list i {
     font-size: 2em;
-    transition: color 0.3s ease; /* Add a smooth color transition effect */
+    transition: color 0.3s ease;
 }
 
 /* Hover effect for the icons */

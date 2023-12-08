@@ -1,5 +1,3 @@
-
-
 var CINOSdescription =
   "This project is being built for a manager at a hotel, \
 it utilizes a web application integrated with a database to create an automated solution. \
@@ -109,64 +107,67 @@ var HTMLcode = `<!DOCTYPE html>
 </html>`;
 
 document.addEventListener("DOMContentLoaded", function () {
-    const projects = [
-      {
-        name: "CINOS",
-        description: CINOSdescription,
-        image: "images/penta.png",
-        subtext: "<em>Our Group/Company Logo</em>",
-      },
-      {
-        name: "Web Application",
-        description: CODEdescription,
-        image: "",
-        subtext: "<em>Code Snippet</em>",
-        code1: phpCode,
-        code2: HTMLcode,
-      },
-      // Add more projects as needed
-    ];
-  
-    const projectList = document.getElementById("project-list");
-    projects.forEach((project) => {
-      const projectDiv = document.createElement("div");
-      projectDiv.className = "project";
-      if (project.image === "") {
-        projectDiv.innerHTML = `<h3>${project.name}</h3><p>${project.description}</p>
-          <pre><code class="language-php">${escapeHtml(project.code1)}</code></pre>
-          <pre><code class="language-html">${escapeHtml(project.code2)}</code></pre>
+  const projects = [
+    {
+      name: "CINOS",
+      description: CINOSdescription,
+      image: "images/penta.png",
+      subtext: "<em>Our Group/Company Logo</em>",
+    },
+    {
+      name: "Web Application",
+      description: CODEdescription,
+      image: "",
+      subtext: "<em>Code Snippet</em>",
+      code1: phpCode,
+      code2: HTMLcode,
+    },
+    // Add more projects as needed
+  ];
+
+  const projectList = document.getElementById("project-list");
+  projects.forEach((project) => {
+    const projectDiv = document.createElement("div");
+    projectDiv.className = "project";
+    if (project.image === "") {
+      projectDiv.innerHTML = `<h3>${project.name}</h3><p>${
+        project.description
+      }</p>
+          <pre><code class="language-php">${escapeHtml(
+            project.code1
+          )}</code></pre>
+          <pre><code class="language-html">${escapeHtml(
+            project.code2
+          )}</code></pre>
           <p>${project.subtext}</p>`;
-      } else {
-        projectDiv.innerHTML = `<h3>${project.name}</h3><p>${project.description}</p>
-          <img src="${project.image}" alt="${project.name}"><p>${project.subtext}</p>`;
-      }
-      projectList.appendChild(projectDiv);
+    } else {
+      projectDiv.innerHTML = `<h3>${project.name}</h3><p>${project.description}</p>
+          <img src="${project.image}" alt="${project.name}"><p>${project.subtext}</p><hr>`;
+    }
+    projectList.appendChild(projectDiv);
 
-      Prism.highlightAll();
-    });
+    Prism.highlightAll();
 
-    function escapeHtml(html) {
-      // Replace special characters with their HTML entities
-      return html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // Check if the browser supports smooth scrolling
+    if ("scrollBehavior" in document.documentElement.style) {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        });
+      });
     }
   });
 
-// Smooth scrolling for anchor links
-document.addEventListener("DOMContentLoaded", function () {
-  // Check if the browser supports smooth scrolling
-  if ("scrollBehavior" in document.documentElement.style) {
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({
-            behavior: "smooth",
-          });
-        }
-      });
-    });
+  function escapeHtml(html) {
+    // Replace special characters with their HTML entities
+    return html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 });
