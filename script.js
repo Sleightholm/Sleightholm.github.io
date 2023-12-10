@@ -122,9 +122,9 @@ document.addEventListener("DOMContentLoaded", function () {
       code1: phpCode,
       code2: HTMLcode,
     },
-    // Add more projects as needed
   ];
 
+  // Add the projects to the page
   const projectList = document.getElementById("project-list");
   projects.forEach((project) => {
     const projectDiv = document.createElement("div");
@@ -146,7 +146,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     projectList.appendChild(projectDiv);
 
+    // Highlights the code snippets
     Prism.highlightAll();
+
+    // Toggle the navigation menu on mobile
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navList = document.getElementById("main-nav");
+
+    menuToggle.addEventListener("click", function () {
+      console.log("Menu button clicked");
+      navList.classList.toggle("show");
+    });
+
+    // Ensure the navigation reappears if the screen size is increased
+    window.addEventListener("resize", function () {
+      console.log("Window resized");
+      if (window.innerWidth > 768) {
+        navList.classList.add("show");
+      } else {
+        navList.classList.remove("show");
+      }
+    });
 
     // Check if the browser supports smooth scrolling
     if ("scrollBehavior" in document.documentElement.style) {

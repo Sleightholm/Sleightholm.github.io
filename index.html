@@ -1,6 +1,6 @@
-<!-- Tweak the mission statement, might be too much info. Add references. -->
-<!-- Maybe mess around with spacing of DIVs and stuff. (Skills, Project) -->
-<!-- Add a picture of myself. -->
+<!-- Add references. -->
+<!-- Spacing of DIVs doesn't work on smaller screens. Icons overflow. (Skills, Project) -->
+<!-- Fix the mobile nav, button doesn't work. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,8 @@
   <body>
     <header>
       <h1>Ethan Sleightholm</h1>
-      <nav>
+      <button class="menu-toggle">&#9776; Menu</button>
+      <nav id="main-nav">
         <ul>
           <li><a href="#mission">Mission Statement</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -35,6 +36,11 @@
     </header>
     <main>
       <div class="parallax">
+        <section id="team-photo">
+          <img style="max-width: 50%; max-height: 50%; display: block; margin-left: auto; margin-right: auto;" src="images/team.jpg" alt="team photo" />
+          <br/><em>Penta Tech Solutions Team Photo</em><br/>
+          <em>(Carlos, Julien, Myself, Milicent, Jordan)</em>
+        </section>
         <section id="mission">
           <div class="mission-statement">
             <h4>My Mission Statement</h4>
@@ -71,21 +77,6 @@
             sustainable change.
             </p>
             </div>
-            <br/><hr>
-            <div class="mission-statement">
-            <h4>Future-Oriented</h4>
-            <p>
-            My forward-thinking mindset positions me to address
-            both current and future needs. I take pride and enjoyment in anticipating
-            technological trends and aligning my skills to meet the evolving demands of
-            the technology industry. Proactivity is ingrained in my approach to ensure
-            readiness for the challenges that lie ahead. Beyond the immediate horizon,
-            my mission extends to advancing in the world of technology. I aspire to take
-            on increasingly challenging roles, contributing to impactful projects and
-            leaving a lasting mark on the organizations I serve. Each step forward is an
-            opportunity to contribute to the broader technological landscape.
-            </p>
-            </div> 
             <br/><hr>
             <div class="mission-statement">
             <h4>Summary</h4>
@@ -149,8 +140,9 @@
               </li>
               <li>
                 <i class="fas fa-lightbulb"></i>
-                <p>Problem Solving</p>
+                <p>Problem<br/> Solving</p>
               </li>
+              
               <li>
                 <i class="fas fa-expand"></i>
                 <p>Adaptability</p>
@@ -189,7 +181,7 @@
             <p>Dean's List - Honors with Distinction (Lethbridge College)</p>
             <p>2022-2023</p>
             <h3>References</h3>
-            <p></p>
+            <p>WIP</p>
             <p></p>
             <p></p>
           </div>

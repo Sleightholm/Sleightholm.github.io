@@ -218,14 +218,26 @@ footer a {
     margin: 0 10px;
 }
 
+.menu-toggle {
+    display: none; /* Initially hide the button */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Adjust the existing media query to show/hide elements based on screen width */
 @media screen and (max-width: 768px) {
     nav ul {
         text-align: center;
+        display: none; /* Hide the navigation */
     }
 
     nav ul li {
         display: block;
         margin: 10px 0;
+        width: 100%;
     }
 
     nav a {
@@ -242,6 +254,28 @@ footer a {
     .skills-category {
         width: 100%;
     }
+
+    .menu-toggle {
+        display: block; /* Show the hamburger icon button */
+    }
+    
+    .menu-toggle:hover {
+        color: hsl(152, 95%, 30%);
+    }
+
+    .skills-list li {
+        /* Adjust size or margins for smaller screens */
+        margin: 5px;
+        min-width: 40px;
+    }
+}
+
+#main-nav {
+    display: block;
+}
+
+#main-nav.show {
+    display: block;
 }
 
 .parallax {
@@ -287,12 +321,14 @@ footer a {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .skills-list li {
     text-align: center;
-    margin: 0 15px;
-    padding: 10px;
+    margin: 5px;
+    padding: 5px;
+    min-width: 30px;
 }
 
 .skills-list i {
